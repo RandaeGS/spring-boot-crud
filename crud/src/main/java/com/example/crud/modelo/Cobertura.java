@@ -1,9 +1,18 @@
 package com.example.crud.modelo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.util.UUID;
 
+@Entity
+@Table(name = "cobertura")
 public class Cobertura {
+
+	@Id
 	private String id;
+
 	private String descripcion;
 	private String riesgo;
 	private float porcentajeCobertura;
@@ -17,6 +26,9 @@ public class Cobertura {
 		this.porcentajeCobertura = porcentajeCobertura;
 		this.montoCobertura = montoCobertura;
 		this.deducible = deducible;
+	}
+
+	protected Cobertura() {
 	}
 
 	public String getDescripcion() {
