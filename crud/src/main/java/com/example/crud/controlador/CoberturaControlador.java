@@ -16,7 +16,7 @@ public class CoberturaControlador {
 
 	@GetMapping("/")
 	public String index(Model model){
-
+		coberturaList.add(new Cobertura("desc", "riesg", 0.22F, 20L, 0.11F));
 		model.addAttribute("coberturas", coberturaList);
 		return "index";
 	}
@@ -24,6 +24,11 @@ public class CoberturaControlador {
 	@GetMapping("/coberturas")
 	public List<Cobertura> listar(){
 		return coberturaList;
+	}
+
+	@GetMapping("/cobertura")
+	public String formulario(){
+		return "registrar";
 	}
 
 	@PostMapping("/cobertura")
