@@ -30,17 +30,18 @@
 
         <div class="row mb-3">
             <div class="col">
-                <form class="mt-3" method="post">
+                <form class="mt-3" method="post" action="/crear">
                     <div><label class="form-label">Descripcion</label><input class="form-control" type="text"
-                            name="descripcion"></div>
-                    <div><label class="form-label">Riesgo</label><input class="form-control" type="text" name="riesgo">
+                            name="descripcion" required></div>
+                    <div><label class="form-label">Riesgo</label><input class="form-control" type="text" name="riesgo"
+                            required>
                     </div>
                     <div><label class="form-label">Porcentaje de cobertura</label><input class="form-control"
-                            type="text" name="porcentaje"></div>
-                    <div><label class="form-label">Monto de cobertura</label><input class="form-control" type="text"
-                            name="monto"></div>
-                    <div><label class="form-label">Deducible</label><input class="form-control" type="text"
-                            name="deducible"></div>
+                            type="number" name="porcentajeCobertura" required></div>
+                    <div><label class="form-label">Monto de cobertura</label><input class="form-control" type="number"
+                            name="montoCobertura" required></div>
+                    <div><label class="form-label">Deducible</label><input class="form-control" type="number"
+                            name="deducible" required></div>
                     <div class="text-center mt-3">
                         <a href="/"><button class="btn btn-secondary" type="button">Cancelar</button>
                         </a>

@@ -1,5 +1,7 @@
 package com.example.crud.modelo;
 
+import java.util.UUID;
+
 public class Cobertura {
 	private String id;
 	private String descripcion;
@@ -9,6 +11,7 @@ public class Cobertura {
 	private float deducible;
 
 	public Cobertura(String descripcion, String riesgo, float porcentajeCobertura, long montoCobertura, float deducible) {
+		this.id = UUID.randomUUID().toString();
 		this.descripcion = descripcion;
 		this.riesgo = riesgo;
 		this.porcentajeCobertura = porcentajeCobertura;

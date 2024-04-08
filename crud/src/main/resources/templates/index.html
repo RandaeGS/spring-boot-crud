@@ -43,6 +43,7 @@
                         </thead>
                         <tbody>
                             <tr th:each="cobertura : ${coberturas}">
+                                <input type="hidden" value="">
                                 <td th:text="${cobertura.descripcion}"></td>
                                 <td th:text="${cobertura.riesgo}"></td>
                                 <td th:text="${cobertura.porcentajeCobertura}"></td>
@@ -50,7 +51,9 @@
                                 <td th:text="${cobertura.deducible}"></td>
                                 <td class="text-center">
                                     <button class="btn btn-secondary btn-sm" type="button">Modificar</button>
-                                    <button class="btn btn-danger btn-sm ms-1" type="button">Eliminar</button>
+                                    <a th:href="@{'/eliminar/' + ${cobertura.id}}">
+                                        <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>

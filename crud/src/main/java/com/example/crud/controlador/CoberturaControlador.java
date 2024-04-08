@@ -21,23 +21,22 @@ public class CoberturaControlador {
 		return "index";
 	}
 
-	@GetMapping("/coberturas")
-	public List<Cobertura> listar(){
-		return coberturaList;
-	}
-
 	@GetMapping("/cobertura")
 	public String formulario(){
 		return "registrar";
 	}
 
-	@PostMapping("/cobertura")
-	public void crear(){
+	@PostMapping("/crear")
+	public String crear(@ModelAttribute Cobertura cobertura){
 
+		coberturaList.add(cobertura);
+		return "redirect:/";
 	}
 
-	@DeleteMapping("/cobertura/{id}")
-	public void delete(@PathVariable String id){
+	@GetMapping("/eliminar/{id}")
+	public String delete(@PathVariable String id){
 		coberturaList.removeIf(cobertura -> cobertura.getId().equals(id));
+		System.out.println("Borrar");
+		return "redirect:/";
 	}
 }
