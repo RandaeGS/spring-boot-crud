@@ -16,7 +16,6 @@ public class CoberturaControlador {
 
 	@GetMapping("/")
 	public String index(Model model){
-		coberturaList.add(new Cobertura("desc", "riesg", 0.22F, 20L, 0.11F));
 		model.addAttribute("coberturas", coberturaList);
 		return "index";
 	}
@@ -33,10 +32,37 @@ public class CoberturaControlador {
 		return "redirect:/";
 	}
 
+	@GetMapping("/modificar/{id}")
+	public String formularioModificar(@PathVariable String id, Model model){
+
+		for (Cobertura cobertura: coberturaList){
+			if (cobertura.getId().equals(id)){
+				model.addAttribute("cobertura", cobertura);
+			}
+		}
+
+		return "registrar";
+	}
+
+	@PostMapping("/modificar")
+	public String modificar(@ModelAttribute Cobertura cobertura, @RequestParam("id") String id){
+
+		for (Cobertura aux: coberturaList){
+			if (aux.getId().equals(id)){
+				aux.setDescripcion(cobertura.getDescripcion());
+				aux.setRiesgo(cobertura.getRiesgo());
+				aux.setMontoCobertura(cobertura.getMontoCobertura());
+				aux.setPorcentajeCobertura(cobertura.getPorcentajeCobertura());
+				aux.setDeducible(cobertura.getDeducible());
+			}
+		}
+
+		return "redirect:/";
+	}
+
 	@GetMapping("/eliminar/{id}")
 	public String delete(@PathVariable String id){
 		coberturaList.removeIf(cobertura -> cobertura.getId().equals(id));
-		System.out.println("Borrar");
 		return "redirect:/";
 	}
 }

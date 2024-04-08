@@ -42,4 +42,24 @@ public class Cobertura {
 	public float getDeducible() {
 		return deducible;
 	}
+
+	public void setDeducible(float deducible) {
+		this.deducible = deducible;
+	}
+
+	public void setMontoCobertura(long montoCobertura) {
+		this.montoCobertura = montoCobertura;
+	}
+
+	public void setPorcentajeCobertura(float porcentajeCobertura) {
+		this.porcentajeCobertura = porcentajeCobertura;
+	}
+
+	public void setRiesgo(String riesgo) {
+		this.riesgo = riesgo;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 }

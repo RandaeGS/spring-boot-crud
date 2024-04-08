@@ -30,24 +30,56 @@
 
         <div class="row mb-3">
             <div class="col">
-                <form class="mt-3" method="post" action="/crear">
-                    <div><label class="form-label">Descripcion</label><input class="form-control" type="text"
-                            name="descripcion" required></div>
-                    <div><label class="form-label">Riesgo</label><input class="form-control" type="text" name="riesgo"
-                            required>
-                    </div>
-                    <div><label class="form-label">Porcentaje de cobertura</label><input class="form-control"
-                            type="number" name="porcentajeCobertura" required></div>
-                    <div><label class="form-label">Monto de cobertura</label><input class="form-control" type="number"
-                            name="montoCobertura" required></div>
-                    <div><label class="form-label">Deducible</label><input class="form-control" type="number"
-                            name="deducible" required></div>
-                    <div class="text-center mt-3">
-                        <a href="/"><button class="btn btn-secondary" type="button">Cancelar</button>
-                        </a>
-                        <button class="btn btn-primary mx-1" type="submit">Aceptar</button>
-                    </div>
-                </form>
+                <th:block th:if="${cobertura == null}">
+
+                    <form class="mt-3" method="post" action="/crear">
+                        <div><label class="form-label">Descripcion</label><input class="form-control" type="text"
+                                name="descripcion" required></div>
+                        <div><label class="form-label">Riesgo</label><input class="form-control" type="text"
+                                name="riesgo" required>
+                        </div>
+                        <div><label class="form-label">Porcentaje de cobertura</label><input class="form-control"
+                                type="number" name="porcentajeCobertura" required></div>
+                        <div><label class="form-label">Monto de cobertura</label><input class="form-control"
+                                type="number" name="montoCobertura" required></div>
+                        <div><label class="form-label">Deducible</label><input class="form-control" type="number"
+                                name="deducible" required></div>
+                        <div class="text-center mt-3">
+                            <a href="/"><button class="btn btn-secondary" type="button">Cancelar</button>
+                            </a>
+
+                            <button class="btn btn-primary mx-1" type="submit">Aceptar</button>
+                        </div>
+                    </form>
+                </th:block>
+
+                <th:block th:if="${cobertura != null}">
+
+                    <form class="mt-3" method="post" action="/modificar">
+
+                        <input type="hidden" name="id" th:value="${cobertura.id}">
+                        <div><label class="form-label">Descripcion</label><input class="form-control" type="text"
+                                name="descripcion" th:value="${cobertura.descripcion}" required></div>
+                        <div><label class="form-label">Riesgo</label><input class="form-control" type="text"
+                                name="riesgo" th:value="${cobertura.riesgo}" required>
+                        </div>
+                        <div><label class="form-label">Porcentaje de cobertura</label><input class="form-control"
+                                type="number" name="porcentajeCobertura" th:value="${cobertura.porcentajeCobertura}"
+                                required></div>
+                        <div><label class="form-label">Monto de cobertura</label><input class="form-control"
+                                type="number" name="montoCobertura" th:value="${cobertura.montoCobertura}" required>
+                        </div>
+                        <div><label class="form-label">Deducible</label><input class="form-control" type="number"
+                                name="deducible" th:value="${cobertura.deducible}" required></div>
+                        <div class="text-center mt-3">
+                            <a href="/"><button class="btn btn-secondary" type="button">Cancelar</button>
+                            </a>
+
+                            <button class="btn btn-primary mx-1" type="submit">Modificar</button>
+                        </div>
+                    </form>
+
+                </th:block>
             </div>
         </div>
     </div>

@@ -50,7 +50,10 @@
                                 <td th:text="${cobertura.montoCobertura}"></td>
                                 <td th:text="${cobertura.deducible}"></td>
                                 <td class="text-center">
-                                    <button class="btn btn-secondary btn-sm" type="button">Modificar</button>
+                                    <a th:href="@{'/modificar/' + ${cobertura.id}}">
+                                        <button class="btn btn-secondary btn-sm" type="button">Modificar</button>
+                                    </a>
+
                                     <a th:href="@{'/eliminar/' + ${cobertura.id}}">
                                         <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
                                     </a>
